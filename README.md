@@ -26,6 +26,7 @@ cypress guide 한국어 버전
 해당 프로젝트소스파일 폴더(repository)
 
 ```
+> cd/[my_project]
 > npm install cypress --save-dev
 
 or
@@ -33,4 +34,35 @@ or
 > yarn add cypress --dev 
 ```
 
+## 테스트 환경 구성
+
+cypress 폴더 생성하기
+```
+> mkdir cypress
+```
+
+package.json 스크립트 수정(추가)하기
+```js
+"scripts": {
+    "_cypress": "./node_modules/.bin/cypress run",
+}
+```
+
+테스트 스크립트를 실행하면 기본 프로젝트 구성이 자동으로 셋팅된다.
+
+## 간단한 테스트 코드 작성 및 실행
+
+```
+> cd cypress/integration
+> vim test.spec.js
+```
+
+기본적인 테스트코드는 일반적인 테스트 코드 문법을 따른다.
+```js
+describe('App E2E', () => {
+    it('should assert that true is equal to true', () => {
+        expect(true).to.equal(true);
+    });
+});
+```
 
