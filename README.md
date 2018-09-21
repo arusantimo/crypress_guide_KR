@@ -6,7 +6,7 @@ cypress guide 한국어 버전
 - 사내 프로젝트 서비스 품질 향상을 위한 POC
 
 
-## 특징 
+## 선택을 위한 다른 테스트 러너와의 차이 및 특징 
 
 다른 e2e 테스트 툴들(예 : Selenium)는 브라우저 외부에서 실행되고 네트워크에서 원격 명령을 실행하여 작동함
 하지만 cypress는 nodejs 와 실시간 통신으로 네트워크 계층에서 테스트 작업을 진행합니다.
@@ -57,12 +57,41 @@ package.json 스크립트 수정(추가)하기
 > vim test.spec.js
 ```
 
-기본적인 테스트코드는 일반적인 테스트 코드 문법을 따른다.
+기본적인 테스트코드 스타일은 mocha와 유사함을 볼수 있다.
 ```js
 describe('App E2E', () => {
     it('should assert that true is equal to true', () => {
         expect(true).to.equal(true);
     });
 });
+```
+
+
+## 간단한 사용방법
+
+제이쿼리 셀릭트 방식과 비슷함.
+```js
+cy.get('#id')
+cy.get('.classname')
+cy.get('input')
+
+// alias 세팅하기
+.get('.my-selector').as('myElement') 
+// after 
+.get('@myElement').click()
+// or 
+this.myElement.click()
+
+...
+
+```
+
+### 이벤트 추가
+
+```js
+cy.get('#id').click()
+
+
+
 ```
 
